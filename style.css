@@ -1,0 +1,229 @@
+/* Import */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+Pro&display=swap");
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3 {
+    overflow-wrap: break-word;
+}
+
+ul {
+    list-style: none;
+}
+
+html {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+        avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell,
+        Ubuntu, roboto, noto, arial, sans-serif;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Playfair Display", Iowan Old Style, Apple Garamond,
+        Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro,
+        serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+h2 {
+    font-size: 1.75rem;
+}
+h3 {
+    font-size: 1.25rem;
+}
+
+/* Colors */
+
+:root {
+    --background: hsl(66deg 57% 93%);
+    --text: hsl(220deg 11% 22%);
+    --text-alt: hsl(220deg 11% 52%);
+    --accent: hsl(14deg 91% 57%);
+    --accent-alt: hsl(14deg 91% 37%);
+}
+
+html {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+footer div {
+    color: var(--text-alt);
+}
+
+a,
+h1,
+h2 {
+    color: var(--accent);
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: var(--accent-alt);
+}
+
+a,
+button {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button {
+    color: var(--accent);
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+svg {
+    background: transparent;
+    fill: var(--accent);
+}
+
+button:hover,
+button:focus {
+    color: var(--accent-alt);
+}
+
+button:hover svg,
+button:focus svg {
+    fill: var(--accent-alt);
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--background);
+}
+
+/* Article layout */
+
+article {
+    margin-bottom: 2rem;
+}
+
+article header {
+    color: var(--text-alt);
+    margin-bottom: 1rem;
+}
+
+article main * + p {
+    margin-top: 0.5rem;
+}
+
+/* Sidebar layout */
+
+aside section + section {
+    margin-top: 1rem;
+}
+
+/* General layout */
+
+body {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+
+    max-width: 60rem;
+    margin: 0 auto 1rem;
+    padding: 0 1rem;
+}
+
+body > header,
+body > footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav > ul {
+    display: flex;
+    gap: 1rem;
+}
+
+body > footer {
+    justify-content: space-around;
+}
+
+/* Mobile layout */
+
+body > header button {
+    display: none;
+}
+
+@media screen and (max-width: 50rem) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    body > header {
+        flex-wrap: wrap;
+    }
+
+    body > header button {
+        display: block;
+    }
+
+    body > header ul,
+    body > footer {
+        flex-direction: column;
+    }
+
+    body > header nav {
+        order: 3;
+        flex-basis: 100%;
+        text-align: center;
+
+        opacity: 0;
+        height: 0;
+        transition: height 0.75s, opacity 0.5s;
+    }
+
+    body > header nav.visible {
+        height: auto;
+        opacity: 1;
+    }
+}
+
+/* Dark mode */
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --background: hsl(220deg 11% 22%);
+        --text: hsl(66deg 57% 93%);
+        --text-alt: hsl(66deg 37% 63%);
+    }
+}
