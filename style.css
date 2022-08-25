@@ -1,0 +1,158 @@
+/* General */
+:root {
+    --dark: #020122;
+    --light: #F2F3AE;
+    --accent: #F4442E;
+    --accent-alt: #FC9E4F;
+
+    --d-xs: .25em;
+    --d-s: .5em;
+    --d-m: .75em;
+    --d-l: 1em;
+    --d-xl: 1.5em;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px / 1.5 sans-serif;
+    color: var(--dark);
+    background-color: var(--light);
+}
+
+body {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: var(--d-m);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: var(--accent-alt);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    margin-bottom: var(--d-m);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header navigation */
+body > header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--d-xl);
+}
+
+body > header nav, body > footer nav {
+    margin-left: auto;
+}
+
+body > header ul, body > footer ul {
+    display: flex;
+    gap: var(--d-xl);
+}
+
+body > header button {
+    display: none;
+}
+
+/* Basic layout */
+
+body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--d-xl);
+}
+
+
+body > header, body > footer {
+    grid-column: 1 / -1;
+}
+
+body > footer {
+    display: flex;
+    gap: var(--d-xl);
+    margin-bottom: var(--d-xl);
+    font-size: 13px;
+}
+
+/* Articles */
+
+article + article {
+    margin-top: calc(2 * var(--d-l));
+    padding-top: var(--d-xl);
+    border-top: 1px solid;
+}
+
+article header {
+    font-size: 14px;
+    line-height: 1;
+}
+
+article header, article h2 {
+    margin-bottom: var(--d-l);
+}
+
+article img {
+    margin-bottom: var(--d-xl);
+    border-radius: var(--d-xs);
+    box-shadow: 0 var(--d-l) var(--d-m) calc(var(--d-m) * -1) var(--dark);
+}
+
+aside section + section {
+    margin-top: var(--d-l);
+}
+
+aside section h3 {
+    margin-bottom: var(--d-s);
+}
+
+@media (max-width: 530px) {
+    body {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    body > header {
+        margin-bottom: 0;
+    }
+
+    body > header, body > footer {
+        flex-direction: column;
+    }
+
+    body > header nav, body > footer nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body > header ul, body > footer ul {
+        gap: var(--d-s);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark: #FFCDBC;
+        --light: #2D080A;
+        --accent: #F5853F;
+        --accent-alt: #7C3626;
+    }
+}
